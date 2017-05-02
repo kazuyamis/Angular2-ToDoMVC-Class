@@ -1,0 +1,13 @@
+
+      <li *ngFor="let item of todoitems, let index  = index, let f = first, let even = even, let odd = odd"
+        [ngClass]="{completed : item.done, editing : item.isEditing, even : even, odd : odd}">
+        <!--<div class="view" [ngClass]="{even : (index + 1) % 2 == 0 , odd : (index + 1) % 2 != 0}">-->
+        <div class="view">
+          <input class="toggle" type="checkbox" [(ngModel)]="item.done" (change)="isChange(item)">
+          <label (dblclick)="toggleItemEditing(item)">({{index  + 1 }}) {{item.text}}
+            <span *ngIf="item.done" class="completed">(完成)</span>
+          </label>
+          <button class="destroy"></button>
+        </div>
+        <input class="edit" [(ngModel)]="item.text" (keyup.enter)="confirmItemEditing(item)" (keyup.esc)="cancelItemEditing(item)">
+      </li>

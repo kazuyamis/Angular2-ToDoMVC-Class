@@ -1,0 +1,13 @@
+.completed{
+  color: red;
+}
+
+.even{
+  background-color: #CCDDFF;
+  color : white
+}
+
+.odd{
+  background-color: #D1BBFF;
+  color : white
+}

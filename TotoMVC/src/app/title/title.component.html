@@ -1,0 +1,7 @@
+<header class="header">
+  <h1 [innerHTML]="title"></h1>
+  <h2 class="bg-blue">TitleComponent中使用全域的</h2>
+  <h2 class="bg-red">TitleComponent中使用自己的class</h2>
+  <input class="new-todo" [placeholder]="inputPlaceholder" autofocus (keyup.enter)="inputEnterKeyUp($event)" [(ngModel)]="inputValue">
+</header>
+

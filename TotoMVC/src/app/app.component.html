@@ -1,0 +1,47 @@
+<section class="todoapp">
+  <h2 class="bg-blue">AppComponent中使用全域的</h2>
+  <h2 class="bg-red">AppComponent中無法使用其他Component專屬的class</h2>
+  <app-title (addTodo) = "addTodoText($event)"></app-title>
+  <!-- This section should be hidden by default and shown when there are todos -->
+  <section class="main">
+    <input class="toggle-all" type="checkbox">
+    <label for="toggle-all">Mark all as complete</label>
+    <ul class="todo-list">
+      <!-- These are here just to show the structure of the list items -->
+      <!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
+      <app-todo-items [todoitems]="items" (countItem)="CountLeftItem($event)"></app-todo-items>
+    </ul>
+  </section>
+  <!-- This footer should hidden by default and shown when there are todos -->
+  <footer class="footer">
+    <!-- This should be `0 items left` by default -->
+    <span class="todo-count">
+        <strong>{{ countleftItem }}</strong>
+        <span *ngIf=" countleftItem > 1"> items</span>
+        <span *ngIf=" countleftItem <= 1"> item</span>
+        left
+    </span>
+    <!-- Remove this if you don't implement routing -->
+    <ul class="filters">
+      <li>
+        <a class="selected" href="#/">All</a>
+      </li>
+      <li>
+        <a href="#/active">Active</a>
+      </li>
+      <li>
+        <a href="#/completed">Completed</a>
+      </li>
+    </ul>
+    <!-- Hidden if no completed items are left ↓ -->
+    <button class="clear-completed">Clear completed</button>
+  </footer>
+</section>
+<footer class="info">
+  <p>Double-click to edit a todo</p>
+  <!-- Remove the below line ↓ -->
+  <p>Template by <a href="http://sindresorhus.com">Sindre Sorhus</a></p>
+  <!-- Change this out with your name and url ↓ -->
+  <p>Created by <a href="http://todomvc.com">you</a></p>
+  <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+</footer>
